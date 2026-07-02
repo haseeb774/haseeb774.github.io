@@ -1,0 +1,2648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haseeb-u-Rehman | Data Scientist & ML Engineer</title>
+    <meta name="description" content="Data Scientist specializing in ML systems for e-commerce & retail.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========================================
+           PREMIUM COLOR GRADING
+           Teal | Deep Navy | Cool Accents
+           ======================================== */
+        :root {
+            --bg-primary: #0c0f1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a1f35;
+            --bg-card-hover: #222842;
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            
+            --accent-teal: #06B6D4;
+            --accent-emerald: #10b981;
+            --accent-violet: #8b5cf6;
+            
+            --gradient-teal: linear-gradient(135deg, #06B6D4 0%, #0EA5E9 100%);
+            --gradient-hero: linear-gradient(135deg, #06B6D4 0%, #0EA5E9 100%);
+            
+            --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.4);
+            --shadow-glow: 0 0 40px rgba(6, 182, 212, 0.15);
+            
+            --border-card: 1px solid rgba(6, 182, 212, 0.1);
+            
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(12, 15, 26, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-teal);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--accent-teal); }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 40px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            height: 100%;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 100px;
+            margin-bottom: 24px;
+            font-size: 0.875rem;
+            color: var(--accent-emerald);
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-emerald);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .hero-highlight {
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-teal);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-teal);
+            color: var(--accent-teal);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-teal);
+        }
+
+        .stat-label {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        /* Chart */
+        .hero-visual {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .chart-box {
+            background: var(--bg-card);
+            border: var(--border-card);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            width: 100%;
+            max-width: 500px;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .chart-title {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .chart-legend {
+            display: flex;
+            gap: 16px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legend-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .legend-actual { background: var(--accent-teal); }
+        .legend-predicted { background: var(--accent-violet); }
+
+        .chart-canvas {
+            width: 100%;
+            height: 100%;
+            max-height: 250px;
+        }
+
+        /* Metrics Section */
+        .metrics {
+            padding: 80px 40px;
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(6, 182, 212, 0.1);
+            border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .metrics-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .metric-card {
+            background: var(--bg-card);
+            border: var(--border-card);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .metric-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: 12px;
+            color: var(--accent-teal);
+        }
+
+        .metric-number {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 40px;
+        }
+
+        .section-header {
+            max-width: 1200px;
+            margin: 0 auto 64px;
+        }
+
+        .section-tag {
+            font-family: var(--font-heading);
+            font-size: 0.875rem;
+            color: var(--accent-teal);
+            margin-bottom: 12px;
+            display: block;
+            letter-spacing: 0.15em;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: var(--border-card);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-teal);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: 12px;
+            color: var(--accent-teal);
+        }
+
+        .card-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--accent-emerald);
+            padding: 6px 12px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 100px;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-emerald);
+            border-radius: 50%;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.375rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .card-desc {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .card-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+        }
+
+        .card-metric {
+            text-align: center;
+        }
+
+        .metric-highlight {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--accent-teal);
+            margin-bottom: 4px;
+        }
+
+        .metric-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .card-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 6px 12px;
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 6px;
+            color: var(--accent-violet);
+        }
+
+        .card-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .card-link:hover {
+            background: var(--accent-teal);
+            color: var(--bg-primary);
+            border-color: var(--accent-teal);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: var(--border-card);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .skill-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: 10px;
+            color: var(--accent-teal);
+        }
+
+        .skill-title {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            font-size: 0.8125rem;
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            color: var(--text-secondary);
+        }
+
+        /* About Grid */
+        .about-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .about-card {
+            background: var(--bg-card);
+            border: var(--border-card);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+
+        .about-card:hover {
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+
+        .about-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--accent-teal);
+        }
+
+        .about-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .achievement-badge {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 12px;
+        }
+
+        .badge-medal {
+            font-size: 2.5rem;
+        }
+
+        .achievement-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .achievement-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+        }
+
+        .achievement-desc {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .achievement-date {
+            font-size: 0.8125rem;
+            color: var(--accent-teal);
+            font-weight: 500;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s;
+            margin-bottom: 8px;
+        }
+
+        .contact-link:hover {
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-teal);
+        }
+
+        .contact-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Services Section */
+        .services-carousel {
+            max-width: 1200px;
+            margin: 0 auto 48px;
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+            mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 16px;
+            width: max-content;
+            animation: scroll 30s linear infinite;
+        }
+
+        .carousel-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .carousel-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--bg-card);
+            border: 1px solid rgba(6, 182, 212, 0.15);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .carousel-item:hover {
+            border-color: var(--accent-teal);
+            color: var(--accent-teal);
+        }
+
+        .carousel-icon {
+            font-size: 1rem;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            perspective: 1000px;
+            height: 280px;
+            cursor: pointer;
+            animation: cardSlideIn 0.6s ease forwards;
+            animation-delay: var(--delay, 0s);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .service-card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            padding: 28px;
+            background: var(--bg-card);
+            border: 1px solid rgba(6, 182, 212, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 16px;
+        }
+
+        @keyframes cardSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-teal);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:not(.flipped):hover .card-inner {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(6, 182, 212, 0.15);
+        }
+
+        .card-front::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--card-accent, var(--gradient-teal));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .service-card:not(.flipped):hover .card-front::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:not(.flipped):hover .service-icon {
+            background: var(--card-accent-bg, rgba(6, 182, 212, 0.2));
+            transform: scale(1.1);
+        }
+
+        .card-back-price {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .card-back-text {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 280px;
+        }
+
+        .card-back-btn {
+            margin-top: 8px;
+            padding: 12px 24px;
+            background: var(--card-accent, var(--gradient-teal));
+            color: var(--bg-primary);
+            border: none;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .card-back-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px var(--card-accent-shadow, rgba(6, 182, 212, 0.4));
+        }
+
+        .card-click-hint {
+            position: absolute;
+            bottom: 12px;
+            right: 16px;
+            font-size: 0.6875rem;
+            color: var(--text-muted);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:not(.flipped):hover .card-click-hint {
+            opacity: 1;
+        }
+
+        /* Card Accent Colors */
+        .service-card[data-color="teal"] {
+            --card-accent: linear-gradient(135deg, #06B6D4 0%, #0EA5E9 100%);
+            --card-accent-solid: #06B6D4;
+            --card-accent-bg: rgba(6, 182, 212, 0.2);
+            --card-accent-shadow: rgba(6, 182, 212, 0.4);
+        }
+        .service-card[data-color="emerald"] {
+            --card-accent: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            --card-accent-solid: #10b981;
+            --card-accent-bg: rgba(16, 185, 129, 0.2);
+            --card-accent-shadow: rgba(16, 185, 129, 0.4);
+        }
+        .service-card[data-color="violet"] {
+            --card-accent: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            --card-accent-solid: #8b5cf6;
+            --card-accent-bg: rgba(139, 92, 246, 0.2);
+            --card-accent-shadow: rgba(139, 92, 246, 0.4);
+        }
+        .service-card[data-color="amber"] {
+            --card-accent: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            --card-accent-solid: #f59e0b;
+            --card-accent-bg: rgba(245, 158, 11, 0.2);
+            --card-accent-shadow: rgba(245, 158, 11, 0.4);
+        }
+        .service-card[data-color="rose"] {
+            --card-accent: linear-gradient(135deg, #f43f5e 0%, #fb7185 100%);
+            --card-accent-solid: #f43f5e;
+            --card-accent-bg: rgba(244, 63, 94, 0.2);
+            --card-accent-shadow: rgba(244, 63, 94, 0.4);
+        }
+        .service-card[data-color="cyan"] {
+            --card-accent: linear-gradient(135deg, #22d3ee 0%, #67e8f9 100%);
+            --card-accent-solid: #22d3ee;
+            --card-accent-bg: rgba(34, 211, 238, 0.2);
+            --card-accent-shadow: rgba(34, 211, 238, 0.4);
+        }
+        .service-card[data-color="indigo"] {
+            --card-accent: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
+            --card-accent-solid: #6366f1;
+            --card-accent-bg: rgba(99, 102, 241, 0.2);
+            --card-accent-shadow: rgba(99, 102, 241, 0.4);
+        }
+
+        .service-icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: 10px;
+            color: var(--accent-teal);
+            margin-bottom: 16px;
+            transition: all 0.3s;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.0625rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        /* Service Visual Mini-Charts */
+        .service-visual {
+            height: 50px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .visual-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 6px;
+            height: 100%;
+            width: 100%;
+        }
+
+        .v-bar {
+            flex: 1;
+            background: linear-gradient(180deg, rgba(6, 182, 212, 0.7), rgba(6, 182, 212, 0.3));
+            border-radius: 3px 3px 0 0;
+            animation: barGrow 1.5s ease forwards;
+            animation-delay: inherit;
+            transform-origin: bottom;
+        }
+
+        .v-bar.highlight {
+            background: linear-gradient(180deg, var(--accent-teal), rgba(6, 182, 212, 0.6));
+        }
+
+        @keyframes barGrow {
+            from { transform: scaleY(0); }
+            to { transform: scaleY(1); }
+        }
+
+        .visual-line {
+            width: 100%;
+            height: 100%;
+        }
+
+        .visual-line svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .visual-donut {
+            position: relative;
+            width: 42px;
+            height: 42px;
+        }
+
+        .visual-donut svg {
+            transform: rotate(-90deg);
+            width: 100%;
+            height: 100%;
+        }
+
+        .donut-anim {
+            animation: donutDraw 1.5s ease forwards;
+            stroke-dasharray: 0, 100;
+        }
+
+        @keyframes donutDraw {
+            to { stroke-dasharray: 75, 100; }
+        }
+
+        .visual-donut span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.625rem;
+            font-weight: 700;
+            color: var(--accent-emerald);
+        }
+
+        .visual-dashboard {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            width: 100%;
+        }
+
+        .vd-row {
+            display: flex;
+            gap: 6px;
+        }
+
+        .vd-block {
+            height: 14px;
+            background: linear-gradient(90deg, rgba(6, 182, 212, 0.5), rgba(139, 92, 246, 0.3));
+            border-radius: 3px;
+            animation: blockSlide 1s ease forwards;
+            transform-origin: left;
+            transform: scaleX(0);
+        }
+
+        .vd-block.sm {
+            background: linear-gradient(90deg, rgba(16, 185, 129, 0.4), rgba(6, 182, 212, 0.3));
+        }
+
+        @keyframes blockSlide {
+            to { transform: scaleX(1); }
+        }
+
+        .visual-scatter {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .visual-scatter .dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(6, 182, 212, 0.5);
+            border-radius: 50%;
+            animation: dotPop 0.5s ease forwards;
+            animation-delay: inherit;
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        .visual-scatter .dot.highlight {
+            background: var(--accent-teal);
+            width: 8px;
+            height: 8px;
+        }
+
+        @keyframes dotPop {
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .visual-flow {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.625rem;
+            font-weight: 600;
+        }
+
+        .flow-node {
+            padding: 4px 10px;
+            background: rgba(6, 182, 212, 0.15);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 6px;
+            color: var(--accent-teal);
+            animation: flowPulse 2s ease-in-out infinite;
+        }
+
+        .flow-node:nth-child(3) { animation-delay: 0.3s; }
+        .flow-node:nth-child(5) { animation-delay: 0.6s; }
+
+        @keyframes flowPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .flow-arrow {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        .visual-report {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 100%;
+        }
+
+        .vr-line {
+            height: 6px;
+            background: linear-gradient(90deg, rgba(6, 182, 212, 0.5), rgba(6, 182, 212, 0.1));
+            border-radius: 3px;
+            animation: lineGrow 1.2s ease forwards;
+            transform-origin: left;
+            transform: scaleX(0);
+        }
+
+        .vr-line.short {
+            background: linear-gradient(90deg, rgba(139, 92, 246, 0.4), rgba(139, 92, 246, 0.1));
+        }
+
+        @keyframes lineGrow {
+            to { transform: scaleX(1); }
+        }
+
+        /* Contact Form */
+        .contact-form-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px 16px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-teal);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form .btn {
+            align-self: flex-start;
+        }
+
+        .contact-alt {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .contact-alt p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .contact-alt a {
+            color: var(--accent-teal);
+            text-decoration: none;
+        }
+
+        .contact-alt a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-alt-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .contact-alt-links a {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-alt-links a:hover {
+            color: var(--accent-teal);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 60px 40px 32px;
+            border-top: 1px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-teal);
+            margin-bottom: 16px;
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: var(--accent-teal); }
+
+        .footer-bottom {
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-bottom p {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container { grid-template-columns: 1fr; }
+            .hero-visual { max-width: 500px; margin: 0 auto; }
+            .chart-box { max-width: 100%; height: 280px; }
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .nav-hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .nav { padding: 16px 20px; }
+            .nav-hamburger { display: flex; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                right: 0;
+                background: rgba(12,15,26,0.97);
+                flex-direction: column;
+                padding: 20px 40px;
+                gap: 20px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            .nav-links.open { display: flex; }
+            .hero { padding: 100px 20px 60px; }
+            .hero-title { font-size: 2.25rem; }
+            .hero-buttons { flex-direction: column; }
+            .hero-stats { flex-wrap: wrap; gap: 24px; }
+            .metrics-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .section { padding: 60px 20px; }
+        }
+
+        @media (max-width: 640px) {
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mini Dashboard */
+        .mini-dashboard {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(6, 182, 212, 0.15);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+
+        .mini-chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .mini-chart-title {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .mini-chart-badge {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--accent-teal);
+            border-radius: 4px;
+        }
+
+        .mini-chart-badge.positive {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-emerald);
+        }
+
+        .mini-progress-container {
+            margin-bottom: 10px;
+        }
+
+        .mini-progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.6875rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .mini-progress-track {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 1.5s ease-out;
+        }
+
+        .mini-stats-row {
+            display: flex;
+            gap: 16px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .mini-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mini-stat-value {
+            font-family: var(--font-heading);
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--accent-teal);
+        }
+
+        .mini-stat-label {
+            font-size: 0.625rem;
+            color: var(--text-muted);
+        }
+
+        /* Donut Chart */
+        .mini-donut-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .mini-donut {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+
+        .donut-chart {
+            transform: rotate(-90deg);
+        }
+
+        .donut-ring {
+            stroke-dasharray: 100;
+        }
+
+        .donut-segment {
+            stroke-dasharray: 0, 100;
+            animation: donutFill 1.5s ease-out forwards;
+        }
+
+        @keyframes donutFill {
+            to { stroke-dasharray: 75, 100; }
+        }
+
+        .donut-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent-emerald);
+        }
+
+        .mini-donut-label {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .mini-stat-sm {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .mini-stat-sm.muted {
+            font-size: 0.625rem;
+            color: var(--text-muted);
+        }
+
+        /* Bar Chart */
+        .mini-bar-row {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mini-bar-item {
+            display: grid;
+            grid-template-columns: 70px 1fr 40px;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mini-bar-label {
+            font-size: 0.625rem;
+            color: var(--text-muted);
+        }
+
+        .mini-bar-track {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .mini-bar-value {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-align: right;
+        }
+
+        /* Mini Bars Chart */
+        .mini-bars-chart {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 80px;
+            margin-bottom: 12px;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        .mini-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .mini-col-bar {
+            width: 28px;
+            min-height: 8px;
+            background: linear-gradient(180deg, rgba(139, 92, 246, 0.9), rgba(139, 92, 246, 0.5));
+            border-radius: 4px 4px 0 0;
+            transition: height 1s ease-out;
+        }
+
+        .mini-col-bar.highlight {
+            background: linear-gradient(180deg, var(--accent-teal), rgba(6, 182, 212, 0.7));
+        }
+
+        .mini-col-label {
+            font-size: 0.5625rem;
+            color: var(--text-muted);
+        }
+
+        /* Mini KPI Row */
+        .mini-kpi-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .mini-kpi {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+        }
+
+        .mini-kpi-icon {
+            font-size: 1.25rem;
+        }
+
+        .mini-kpi-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mini-kpi-value {
+            font-family: var(--font-heading);
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .mini-kpi-label {
+            font-size: 0.5625rem;
+            color: var(--text-muted);
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gradient-teal);
+            z-index: 1001;
+            transition: width 0.1s;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: var(--bg-card); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-teal); }
+
+        ::selection {
+            background: rgba(6, 182, 212, 0.3);
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#" class="nav-logo">{ Haseeb }</a>
+        <button class="nav-hamburger" id="navToggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <a href="#contact" class="hero-badge" style="text-decoration: none;">
+                    <span class="badge-dot"></span>
+                    Available for Freelance
+                    <span style="margin-left: 4px; font-weight: 600;">→ Work with me</span>
+                </a>
+                <h1 class="hero-title">
+                    I build ML systems that turn<br>
+                    <span class="hero-highlight">"we lost a sale"</span><br>
+                    into<br>
+                    <span class="hero-highlight">"we saw it coming 4 days ago."</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Data Scientist specializing in e-commerce & retail. 
+                    Forecasting, churn prediction, and analytics that pay for themselves.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects →</a>
+                    <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">39.5%</span>
+                        <span class="stat-label">Error Reduction</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">4 days</span>
+                        <span class="stat-label">Advance Alert</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">$210K</span>
+                        <span class="stat-label">Est. Retention Savings</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="chart-box">
+                    <div class="chart-header">
+                        <span class="chart-title">Inventory Demand: Forecast vs Actual (Units)</span>
+                        <div class="chart-legend">
+                            <span class="legend-item"><span class="legend-dot legend-actual"></span> Actual</span>
+                            <span class="legend-item"><span class="legend-dot legend-predicted"></span> Predicted</span>
+                        </div>
+                    </div>
+                    <canvas id="heroChart" class="chart-canvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="metrics">
+        <div class="metrics-grid">
+            <div class="metric-card fade-in">
+                <div class="metric-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                    </svg>
+                </div>
+                <div class="metric-number">$4,275</div>
+                <div class="metric-label">Capital Freed from Overstock</div>
+            </div>
+            <div class="metric-card fade-in">
+                <div class="metric-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                </div>
+                <div class="metric-number">4 days</div>
+                <div class="metric-label">Stockout Prediction Lead Time</div>
+            </div>
+            <div class="metric-card fade-in">
+                <div class="metric-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <div class="metric-number">75%</div>
+                <div class="metric-label">Churn Detection Recall</div>
+            </div>
+            <div class="metric-card fade-in">
+                <div class="metric-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                        <line x1="12" y1="1" x2="12" y2="23"/>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                    </svg>
+                </div>
+                <div class="metric-number">$210K</div>
+                <div class="metric-label">Estimated Savings via Retention</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="section-header">
+            <span class="section-tag">PROJECTS</span>
+            <h2 class="section-title">What I've Built</h2>
+            <p class="section-subtitle">Production ML systems delivering measurable business impact</p>
+        </div>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card fade-in">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    <div class="card-status"><span class="status-dot"></span> Live</div>
+                </div>
+                <h3 class="card-title">Inventory Forecasting & Optimization Engine</h3>
+                <p class="card-desc">XGBoost-powered demand forecasting & reorder alert system for e-commerce — flags stockouts before they happen.</p>
+                
+                <!-- Mini Dashboard Preview -->
+                <div class="mini-dashboard">
+                    <div class="mini-chart-header">
+                        <span class="mini-chart-title">Demand Forecast Accuracy</span>
+                        <span class="mini-chart-badge">+39.5%</span>
+                    </div>
+                    <div class="mini-progress-container">
+                        <div class="mini-progress-label">
+                            <span>Baseline Error</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="mini-progress-track">
+                            <div class="progress-bar" data-width="100%" style="width: 0%; background: #64748b;"></div>
+                        </div>
+                    </div>
+                    <div class="mini-progress-container">
+                        <div class="mini-progress-label">
+                            <span>Optimized Error</span>
+                            <span>60.5%</span>
+                        </div>
+                        <div class="mini-progress-track">
+                            <div class="progress-bar" data-width="60.5%" style="width: 0%; background: linear-gradient(90deg, #06B6D4, #10b981);"></div>
+                        </div>
+                    </div>
+                    <div class="mini-stats-row">
+                        <div class="mini-stat">
+                            <span class="mini-stat-value">$4,275</span>
+                            <span class="mini-stat-label">Capital Freed (est.)</span>
+                        </div>
+                        <div class="mini-stat">
+                            <span class="mini-stat-value">4 days</span>
+                            <span class="mini-stat-label">Early Alert</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-metrics">
+                    <div class="card-metric">
+                        <span class="metric-highlight">39.5%</span>
+                        <span class="metric-desc">Error Reduction</span>
+                    </div>
+                    <div class="card-metric">
+                        <span class="metric-highlight">4 days</span>
+                        <span class="metric-desc">Advance Alert</span>
+                    </div>
+                    <div class="card-metric">
+                        <span class="metric-highlight">$4,275</span>
+                        <span class="metric-desc">Capital Freed (est.)</span>
+                    </div>
+                </div>
+                <div class="card-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">XGBoost</span>
+                    <span class="tech-tag">Streamlit</span>
+                    <span class="tech-tag">GitHub Actions</span>
+                </div>
+                <div class="card-links">
+                    <a href="https://inventory-forecasting-optimizing-engine-fz6hc6egappoqzivhceixg.streamlit.app/" target="_blank" rel="noopener noreferrer" class="card-link">Live Demo ↗</a>
+                    <a href="https://github.com/haseeb774/Inventory-Forecasting-Optimizing-Engine" target="_blank" rel="noopener noreferrer" class="card-link">GitHub ↗</a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card fade-in">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <div class="card-status"><span class="status-dot"></span> Live</div>
+                </div>
+                <h3 class="card-title">ChurnGuard — Predictive Churn Intelligence</h3>
+                <p class="card-desc">Predicts which customers are about to leave, explains why using SHAP, and recommends retention actions.</p>
+                
+                <!-- Mini Dashboard Preview -->
+                <div class="mini-dashboard">
+                    <div class="mini-chart-header">
+                        <span class="mini-chart-title">Customer Retention Impact</span>
+                        <span class="mini-chart-badge">$210K Projected</span>
+                    </div>
+                    <div class="mini-donut-row">
+                        <div class="mini-donut">
+                            <svg viewBox="0 0 36 36" class="donut-chart">
+                                <path class="donut-ring" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#1a1f35" stroke-width="3"/>
+                                <path class="donut-segment" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="75, 100"/>
+                            </svg>
+                            <span class="donut-text">75%</span>
+                        </div>
+                        <div class="mini-donut-label">
+                            <span class="mini-stat-sm">Recall Rate</span>
+                            <span class="mini-stat-sm muted">Detected 75% of churners</span>
+                        </div>
+                    </div>
+                    <div class="mini-bar-row">
+                        <div class="mini-bar-item">
+                            <span class="mini-bar-label">Cost Before</span>
+                            <div class="mini-bar-track">
+                                <div class="progress-bar" data-width="100%" style="width: 0%; background: #64748b;"></div>
+                            </div>
+                            <span class="mini-bar-value">$350K</span>
+                        </div>
+                        <div class="mini-bar-item">
+                            <span class="mini-bar-label">Cost After</span>
+                            <div class="mini-bar-track">
+                                <div class="progress-bar" data-width="40%" style="width: 0%; background: linear-gradient(90deg, #10b981, #06B6D4);"></div>
+                            </div>
+                            <span class="mini-bar-value">$140K</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-metrics">
+                    <div class="card-metric">
+                        <span class="metric-highlight">75%</span>
+                        <span class="metric-desc">Recall Rate</span>
+                    </div>
+                    <div class="card-metric">
+                        <span class="metric-highlight">$210K</span>
+                        <span class="metric-desc">Projected (est.)</span>
+                    </div>
+                    <div class="card-metric">
+                        <span class="metric-highlight">60%</span>
+                        <span class="metric-desc">Cost Reduction</span>
+                    </div>
+                </div>
+                <div class="card-tech">
+                    <span class="tech-tag">scikit-learn</span>
+                    <span class="tech-tag">XGBoost</span>
+                    <span class="tech-tag">SHAP</span>
+                    <span class="tech-tag">MLflow</span>
+                    <span class="tech-tag">Optuna</span>
+                </div>
+                <div class="card-links">
+                    <a href="https://wuapmnthontqkgganz5bvr.streamlit.app/" target="_blank" rel="noopener noreferrer" class="card-link">Live Demo ↗</a>
+                    <a href="https://github.com/haseeb774/Churn-guard-with-recomendations-" target="_blank" rel="noopener noreferrer" class="card-link">GitHub ↗</a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card fade-in">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                            <circle cx="9" cy="21" r="1"/>
+                            <circle cx="20" cy="21" r="1"/>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                        </svg>
+                    </div>
+                    <div class="card-status" style="background: rgba(100, 116, 139, 0.1); color: #94a3b8;"><span class="status-dot" style="background: #94a3b8; animation: none;"></span> Case Study</div>
+                </div>
+                <h3 class="card-title">Brazilian E-Commerce Intelligence</h3>
+                <p class="card-desc">End-to-end data analysis pipeline — SQL scripts to Power BI dashboard analyzing 45K+ orders.</p>
+                
+                <!-- Mini Dashboard Preview -->
+                <div class="mini-dashboard">
+                    <div class="mini-chart-header">
+                        <span class="mini-chart-title">E-Commerce Analytics</span>
+                        <span class="mini-chart-badge positive">R$ 9.19M Revenue</span>
+                    </div>
+                    <div class="mini-kpi-row">
+                        <div class="mini-kpi">
+                            <div class="mini-kpi-icon">📦</div>
+                            <div class="mini-kpi-info">
+                                <span class="mini-kpi-value">45K+</span>
+                                <span class="mini-kpi-label">Orders</span>
+                            </div>
+                        </div>
+                        <div class="mini-kpi">
+                            <div class="mini-kpi-icon">🚚</div>
+                            <div class="mini-kpi-info">
+                                <span class="mini-kpi-value">99.2%</span>
+                                <span class="mini-kpi-label">Delivery</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mini-progress-container">
+                        <div class="mini-progress-label">
+                            <span>SQL → Python → Power BI</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="mini-progress-track">
+                            <div class="progress-bar" data-width="100%" style="width: 0%; background: linear-gradient(90deg, #8b5cf6, #06B6D4, #10b981);"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-metrics">
+                    <div class="card-metric">
+                        <span class="metric-highlight">R$ 9.19M</span>
+                        <span class="metric-desc">Revenue Analyzed</span>
+                    </div>
+                    <div class="card-metric">
+                        <span class="metric-highlight">45K+</span>
+                        <span class="metric-desc">Orders</span>
+                    </div>
+                </div>
+                <div class="card-tech">
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Power BI</span>
+                </div>
+                <div class="card-links">
+                    <a href="https://github.com/haseeb774/Olist-Data-analysis-SQL-Python-Power-BI-Case-study" target="_blank" rel="noopener noreferrer" class="card-link">GitHub ↗</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section" style="background: var(--bg-secondary); border-top: 1px solid rgba(6,182,212,0.1); border-bottom: 1px solid rgba(6,182,212,0.1);">
+        <div class="section-header">
+            <span class="section-tag">SERVICES</span>
+            <h2 class="section-title">Services Provided</h2>
+            <p class="section-subtitle">End-to-end ML and analytics solutions for e-commerce & retail</p>
+        </div>
+
+        <!-- Scrolling Carousel -->
+        <div class="services-carousel">
+            <div class="carousel-track">
+                <div class="carousel-item"><span class="carousel-icon">📊</span> Demand Forecasting</div>
+                <div class="carousel-item"><span class="carousel-icon">🛡️</span> Churn Prediction</div>
+                <div class="carousel-item"><span class="carousel-icon">📈</span> Revenue Intelligence</div>
+                <div class="carousel-item"><span class="carousel-icon">⚡</span> ETL Pipelines</div>
+                <div class="carousel-item"><span class="carousel-icon">🎯</span> ML Models</div>
+                <div class="carousel-item"><span class="carousel-icon">📋</span> Power BI Dashboards</div>
+                <div class="carousel-item"><span class="carousel-icon">🔍</span> Deep Analysis</div>
+                <div class="carousel-item"><span class="carousel-icon">📦</span> Inventory Optimization</div>
+                <!-- Duplicate for seamless loop -->
+                <div class="carousel-item"><span class="carousel-icon">📊</span> Demand Forecasting</div>
+                <div class="carousel-item"><span class="carousel-icon">🛡️</span> Churn Prediction</div>
+                <div class="carousel-item"><span class="carousel-icon">📈</span> Revenue Intelligence</div>
+                <div class="carousel-item"><span class="carousel-icon">⚡</span> ETL Pipelines</div>
+                <div class="carousel-item"><span class="carousel-icon">🎯</span> ML Models</div>
+                <div class="carousel-item"><span class="carousel-icon">📋</span> Power BI Dashboards</div>
+                <div class="carousel-item"><span class="carousel-icon">🔍</span> Deep Analysis</div>
+                <div class="carousel-item"><span class="carousel-icon">📦</span> Inventory Optimization</div>
+            </div>
+        </div>
+
+        <!-- Service Cards Grid -->
+        <div class="services-grid">
+            <!-- ML Model Development -->
+            <div class="service-card fade-in" style="--delay: 0s" data-color="teal">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                        </div>
+                        <h3>ML Model Development</h3>
+                        <p>Custom machine learning models for classification, regression, and time-series forecasting using XGBoost, scikit-learn, and CatBoost.</p>
+                        <div class="service-visual">
+                            <div class="visual-bars">
+                                <div class="v-bar" style="height: 40%"></div>
+                                <div class="v-bar" style="height: 65%"></div>
+                                <div class="v-bar" style="height: 50%"></div>
+                                <div class="v-bar highlight" style="height: 85%"></div>
+                                <div class="v-bar" style="height: 70%"></div>
+                            </div>
+                        </div>
+                        <span class="card-click-hint">Click to see pricing →</span>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-back-price">Custom Quote</div>
+                        <p class="card-back-text">Every project is different. Tell me what you need and I'll scope it out.</p>
+                        <a href="#contact" class="card-back-btn">Get a Quote</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inventory Forecasting -->
+            <div class="service-card fade-in" style="--delay: 0.1s" data-color="emerald">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <h3>Inventory Forecasting</h3>
+                        <p>Demand prediction and reorder optimization systems that flag stockouts before they happen and reduce dead stock.</p>
+                        <div class="service-visual">
+                            <div class="visual-line">
+                                <svg viewBox="0 0 120 40" preserveAspectRatio="none">
+                                    <polyline points="0,35 20,28 40,30 60,18 80,22 100,12 120,8" fill="none" stroke="#10b981" stroke-width="2"/>
+                                    <polyline points="0,35 20,30 40,32 60,24 80,20 100,15 120,10" fill="none" stroke="var(--accent-violet)" stroke-width="2" stroke-dasharray="4,4"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <span class="card-click-hint">Click to see pricing →</span>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-back-price">Custom Quote</div>
+                        <p class="card-back-text">Every project is different. Tell me what you need and I'll scope it out.</p>
+                        <a href="#contact" class="card-back-btn">Get a Quote</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Churn Prediction -->
+            <div class="service-card fade-in" style="--delay: 0.2s" data-color="violet">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3>Churn Prediction</h3>
+                        <p>Identify at-risk customers before they leave, explain why with SHAP, and recommend targeted retention actions.</p>
+                        <div class="service-visual">
+                            <div class="visual-donut">
+                                <svg viewBox="0 0 36 36">
+                                    <circle cx="18" cy="18" r="15.9155" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="3"/>
+                                    <circle cx="18" cy="18" r="15.9155" fill="none" stroke="#8b5cf6" stroke-width="3" stroke-dasharray="75, 100" stroke-dashoffset="25" class="donut-anim"/>
+                                </svg>
+                                <span>75%</span>
+                            </div>
+                        </div>
+                        <span class="card-click-hint">Click to see pricing →</span>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-back-price">Custom Quote</div>
+                        <p class="card-back-text">Every project is different. Tell me what you need and I'll scope it out.</p>
+                        <a href="#contact" class="card-back-btn">Get a Quote</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboards & Power BI -->
+            <div class="service-card fade-in" style="--delay: 0.3s" data-color="amber">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="3" y1="9" x2="21" y2="9"/>
+                                <line x1="9" y1="21" x2="9" y2="9"/>
+                            </svg>
+                        </div>
+                        <h3>Dashboards & Power BI</h3>
+                        <p>Interactive dashboards and business intelligence reports that turn raw data into actionable insights for decision-makers.</p>
+                        <div class="service-visual">
+                            <div class="visual-dashboard">
+                                <div class="vd-row">
+                                    <div class="vd-block" style="width: 60%"></div>
+                                    <div class="vd-block sm" style="width: 35%"></div>
+                                </div>
+                                <div class="vd-row">
+                                    <div class="vd-block" style="width: 45%"></div>
+                                    <div class="vd-block" style="width: 50%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="card-click-hint">Click to see pricing →</span>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-back-price">Custom Quote</div>
+                        <p class="card-back-text">Every project is different. Tell me what you need and I'll scope it out.</p>
+                        <a href="#contact" class="card-back-btn">Get a Quote</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deep Analysis -->
+            <div class="service-card fade-in" style="--delay: 0.4s" data-color="rose">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                                <circle cx="11" cy="11" r="8"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            </svg>
+                        </div>
+                        <h3>Deep Analysis</h3>
+                        <p>In-depth statistical analysis and exploratory data analysis to uncover patterns, correlations, and hidden opportunities in your data.</p>
+                        <div class="service-visual">
+                            <div class="visual-scatter">
+                                <div class="dot" style="left: 15%; top: 60%"></div>
+                                <div class="dot" style="left: 30%; top: 40%"></div>
+                                <div class="dot" style="left: 45%; top: 50%"></div>
+                                <div class="dot" style="left: 55%; top: 30%"></div>
+                                <div class="dot" style="left: 70%; top: 25%"></div>
+                                <div class="dot" style="left: 80%; top: 35%"></div>
+                                <div class="dot" style="left: 25%; top: 55%"></div>
+                                <div class="dot highlight" style="left: 65%; top: 20%"></div>
+                            </div>
+                        </div>
+                        <span class="card-click-hint">Click to see pricing →</span>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-back-price">Custom Quote</div>
+                        <p class="card-back-text">Every project is different. Tell me what you need and I'll scope it out.</p>
+                        <a href="#contact" class="card-back-btn">Get a Quote</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Pipeline & ETL -->
+            <div class="service-card fade-in" style="--delay: 0.5s" data-color="cyan">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <h3>Data Pipeline & ETL</h3>
+                        <p>Automated data extraction, transformation, and loading pipelines using Python, SQL, and SQLAlchemy.</p>
+                        <div class="service-visual">
+                            <div class="visual-flow">
+                                <span class="flow-node">Extract</span>
+                                <span class="flow-arrow">→</span>
+                                <span class="flow-node">Transform</span>
+                                <span class="flow-arrow">→</span>
+                                <span class="flow-node">Load</span>
+                            </div>
+                        </div>
+                        <span class="card-click-hint">Click to see pricing →</span>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-back-price">Custom Quote</div>
+                        <p class="card-back-text">Every project is different. Tell me what you need and I'll scope it out.</p>
+                        <a href="#contact" class="card-back-btn">Get a Quote</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Analysis & Reporting -->
+            <div class="service-card fade-in" style="--delay: 0.6s" data-color="indigo">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10 9 9 9 8 9"/>
+                            </svg>
+                        </div>
+                        <h3>Data Analysis & Reporting</h3>
+                        <p>Comprehensive analysis with clear, client-ready reports — from SQL queries to final deliverables.</p>
+                        <div class="service-visual">
+                            <div class="visual-report">
+                                <div class="vr-line" style="width: 90%"></div>
+                                <div class="vr-line" style="width: 75%"></div>
+                                <div class="vr-line short" style="width: 60%"></div>
+                                <div class="vr-line" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <span class="card-click-hint">Click to see pricing →</span>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-back-price">Custom Quote</div>
+                        <p class="card-back-text">Every project is different. Tell me what you need and I'll scope it out.</p>
+                        <a href="#contact" class="card-back-btn">Get a Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section" style="background: var(--bg-secondary); border-top: 1px solid rgba(6,182,212,0.1); border-bottom: 1px solid rgba(6,182,212,0.1);">
+        <div class="section-header">
+            <span class="section-tag">SKILLS</span>
+            <h2 class="section-title">Skills</h2>
+            <p class="section-subtitle">Technologies powering the ML systems</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card fade-in">
+                <div class="skill-header">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-title">Languages</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                </div>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-header">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-title">Data Analysis</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">NumPy</span>
+                    <span class="skill-tag">Matplotlib</span>
+                    <span class="skill-tag">Seaborn</span>
+                    <span class="skill-tag">EDA</span>
+                </div>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-header">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-title">Machine Learning</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">scikit-learn</span>
+                    <span class="skill-tag">XGBoost</span>
+                    <span class="skill-tag">CatBoost</span>
+                    <span class="skill-tag">Optuna</span>
+                    <span class="skill-tag">SHAP</span>
+                    <span class="skill-tag">Feature Engineering</span>
+                </div>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-header">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-title">MLOps</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">MLflow</span>
+                    <span class="skill-tag">GitHub Actions</span>
+                </div>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-header">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="3" y1="9" x2="21" y2="9"/>
+                            <line x1="9" y1="21" x2="9" y2="9"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-title">Dashboards & BI</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">Streamlit</span>
+                </div>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-header">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 0 1 9-9"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-title">Data Extraction</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">SQLAlchemy</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">REST APIs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="section-header">
+            <span class="section-tag">ABOUT</span>
+            <h2 class="section-title">Background</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-card fade-in">
+                <h3>Who I Am</h3>
+                <p>Data Scientist focused on building ML systems that solve real business problems in e-commerce & retail. I help businesses stop losing money to stockouts, dead stock, and customer churn.</p>
+                <p style="margin-top: 12px;">My systems don't just show numbers — they tell you exactly what to do, when to do it, and how much money it will save you.</p>
+                <p style="margin-top: 12px; color: var(--text-muted); font-size: 0.875rem;">Based in Karachi, Pakistan · GMT+5 · Available for remote work</p>
+            </div>
+            <div class="about-card fade-in">
+                <h3>Achievement</h3>
+                <div class="achievement-badge">
+                    <span class="badge-medal">🥈</span>
+                    <div class="achievement-info">
+                        <span class="achievement-title">2nd Place</span>
+                        <span class="achievement-desc">Data Analysis, Technofest Competition</span>
+                        <span class="achievement-date">January 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section" style="background: var(--bg-secondary); border-top: 1px solid rgba(6,182,212,0.1);">
+        <div class="section-header">
+            <span class="section-tag">CONTACT</span>
+            <h2 class="section-title">Start a Project</h2>
+            <p class="section-subtitle">Ready to build something that pays for itself?</p>
+        </div>
+        <div class="contact-form-wrapper">
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                <input type="hidden" name="access_key" value="b3f5bf44-6805-484e-8863-7865cba291a9">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">What do you need help with?</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Tell me about your project — what's the problem, what data do you have, and what outcome are you looking for?" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+            <div class="contact-alt">
+                <p>Prefer email? <a href="mailto:haseeb16001@gmail.com">haseeb16001@gmail.com</a></p>
+                <div class="contact-alt-links">
+                    <a href="https://www.linkedin.com/in/haseeb-u-rehman-4822bb369/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://github.com/haseeb774" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">{ Haseeb }</div>
+            <p class="footer-text">Building ML systems that turn "we lost a sale" into "we saw it coming."</p>
+            <div class="footer-links">
+                <a href="https://github.com/haseeb774" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/haseeb-u-rehman-4822bb369/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="mailto:haseeb16001@gmail.com">Email</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Haseeb-u-Rehman. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    
+    <script>
+        // Chart
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('heroChart');
+            if (ctx) {
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                        datasets: [{
+                            label: 'Actual',
+                            data: [65, 78, 66, 95, 82, 87, 91, 102, 98, 110, 105, 118],
+                            borderColor: '#06B6D4',
+                            backgroundColor: 'rgba(6, 182, 212, 0.1)',
+                            fill: true,
+                            tension: 0.3,
+                            pointRadius: 3,
+                            pointHoverRadius: 6,
+                            pointBackgroundColor: '#06B6D4',
+                            borderWidth: 2
+                        }, {
+                            label: 'Predicted',
+                            data: [68, 75, 70, 88, 85, 90, 95, 98, 102, 108, 112, 115],
+                            borderColor: '#8b5cf6',
+                            backgroundColor: 'rgba(139, 92, 246, 0.05)',
+                            fill: true,
+                            tension: 0.3,
+                            borderDash: [5, 5],
+                            pointRadius: 3,
+                            pointHoverRadius: 6,
+                            pointBackgroundColor: '#8b5cf6',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        aspectRatio: 2,
+                        animation: {
+                            duration: 1500,
+                            easing: 'easeInOutQuart'
+                        },
+                        plugins: { 
+                            legend: { display: false },
+                            tooltip: {
+                                backgroundColor: 'rgba(26, 31, 53, 0.95)',
+                                titleColor: '#f8fafc',
+                                bodyColor: '#94a3b8',
+                                borderColor: 'rgba(6, 182, 212, 0.3)',
+                                borderWidth: 1,
+                                padding: 12,
+                                displayColors: true,
+                                intersect: false,
+                                mode: 'index'
+                            }
+                        },
+                        scales: {
+                            x: { 
+                                grid: { color: 'rgba(255,255,255,0.05)' }, 
+                                ticks: { color: '#64748b', font: { size: 11 } }
+                            },
+                            y: { 
+                                grid: { color: 'rgba(255,255,255,0.05)' }, 
+                                ticks: { color: '#64748b', font: { size: 11 } },
+                                min: 50,
+                                max: 130,
+                                title: {
+                                    display: true,
+                                    text: 'Units Sold',
+                                    color: '#64748b',
+                                    font: { size: 10 }
+                                }
+                            }
+                        },
+                        interaction: {
+                            intersect: false,
+                            mode: 'nearest'
+                        }
+                    }
+                });
+            }
+
+            // Scroll animations with stagger
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Stagger children
+                        const children = entry.target.querySelectorAll('.fade-in-child');
+                        children.forEach((child, i) => {
+                            setTimeout(() => child.classList.add('visible'), i * 100);
+                        });
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+            // Number counter animation
+            function animateCounter(element, target, duration = 2000) {
+                const start = performance.now();
+                const isDecimal = target % 1 !== 0;
+                
+                function update(currentTime) {
+                    const elapsed = currentTime - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easeOut = 1 - Math.pow(1 - progress, 3);
+                    const current = easeOut * target;
+                    
+                    element.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    }
+                }
+                requestAnimationFrame(update);
+            }
+
+            // Observe metric numbers
+            const metricObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const text = el.textContent;
+                        const num = parseFloat(text.replace(/[^0-9.]/g, ''));
+                        if (!isNaN(num)) {
+                            animateCounter(el, num);
+                        }
+                        metricObserver.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('.metric-number, .stat-value').forEach(el => {
+                metricObserver.observe(el);
+            });
+
+            // Progress bar animation for project cards
+            const progressObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bars = entry.target.querySelectorAll('.progress-bar');
+                        bars.forEach((bar, i) => {
+                            setTimeout(() => {
+                                bar.style.width = bar.dataset.width;
+                            }, i * 200);
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                progressObserver.observe(card);
+            });
+
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // Parallax effect on scroll
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero-visual');
+                if (hero) {
+                    hero.style.transform = `translateY(${scrolled * 0.1}px)`;
+                }
+                
+                // Scroll progress
+                const scrollProgress = document.getElementById('scrollProgress');
+                if (scrollProgress) {
+                    const scrollTop = document.documentElement.scrollTop;
+                    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const progress = (scrollTop / scrollHeight) * 100;
+                    scrollProgress.style.width = progress + '%';
+                }
+            });
+            // Mobile nav toggle
+            document.getElementById('navToggle').addEventListener('click', () => {
+              document.querySelector('.nav-links').classList.toggle('open');
+            });
+
+            // Service card flip
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    if (e.target.closest('.card-back-btn')) return;
+                    card.classList.toggle('flipped');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
